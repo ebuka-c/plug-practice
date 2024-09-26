@@ -1,0 +1,26 @@
+// list export of widget reused across the app, even if it reused twice
+export 'package:global_plug/widgets/drawer_opener/drawer_opener.dart';
+export 'package:global_plug/constants/images.dart';
+export 'package:global_plug/constants/sliver_app_bar.dart';
+export 'package:global_plug/widgets/buttons/app_button.dart';
+export 'package:global_plug/widgets/text_fields/application_field.dart';
+export 'package:global_plug/widgets/drawer/custom_drawer.dart';
+export 'package:global_plug/widgets/cards/applications_dashboard_card.dart';
+export 'package:global_plug/widgets/headers/custom_appbar.dart';
+export 'package:global_plug/widgets/appointments_related/appointments_tile.dart';
+export 'package:global_plug/widgets/text_fields/auth_textfield.dart';
+export 'package:pinput/pinput.dart';
+export 'package:global_plug/widgets/docs_upload_widget.dart';
+export 'package:global_plug/widgets/text_fields/phone_num_field.dart';
+export 'package:global_plug/widgets/review_submit/reviewinfo_widget.dart';
+export 'package:global_plug/widgets/dashed_line/dashed_line.dart';
+export 'package:global_plug/widgets/snackbars/success_snackbar.dart';
+export 'package:global_plug/widgets/text_widgets/company_details.dart';
+export 'package:global_plug/widgets/payment_widgets/payment_methods.dart';
+export 'package:global_plug/widgets/dialog/logout_dialog.dart';
+export 'package:global_plug/widgets/cards/faq_cards.dart';
+export 'package:global_plug/widgets/faq/faq_box.dart';
+export 'package:global_plug/widgets/appointments_related/appointment_details.dart';
+export 'package:global_plug/widgets/iconBadge/icon_badge.dart';
+export 'package:global_plug/widgets/text_fields/credit_card_field.dart';
+export 'package:global_plug/widgets/selectable_input/radio_input.dart';
