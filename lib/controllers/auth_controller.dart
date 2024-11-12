@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:global_plug/services/api/endpoints.dart';
 import 'package:global_plug/services/api/helper_methods.dart';
@@ -29,19 +27,12 @@ class AuthController extends GetxController {
     Get.toNamed(AppRoutes.loginScreen);
   }
 
-  void printName() {
-    print('my username');
-  }
-
-  Future<void> signUpUser() async {
+  Future<void> signUpUser(
+      String fullName, String email, String password) async {
     isLoading.value = true;
 
-    var name = nameController.text.trim();
-    var email = emailController.text.trim();
-    var password = passwordController.text.trim();
-
-    var payload =
-        jsonEncode({"name": name, "email": email, "password": password});
+    var payload = jsonEncode(
+        {"fullname": fullName, "email": email, "password": password});
 
     try {
       final response = await APIMethods.postData(
@@ -50,42 +41,16 @@ class AuthController extends GetxController {
         withHeader: false,
       );
 
-      var body = response.body;
-      if (kDebugMode) print("STATUS: ${response.statusCode}");
-      if (kDebugMode) print("SIGN_UP: $body");
+      print('STATUS : ${response.statusCode}');
+      print('BODY : ${response.body}');
 
-      if (response.statusCode == 200) {
-        passwordController.clear();
-        confirmNewPasswordController.clear();
-        // final token = body["data"]["access_token"] as String;
-        // final refreshToken = body["data"]["refresh_token"] as String;
-
-        // if (kDebugMode) print("USER TOKEN: $token");
-        // if (kDebugMode) print("USER REFRESH-TOKEN: $refreshToken");
-
-        // await getStorageInstance.write(TOKEN, token);
-        // await getStorageInstance.write(REFRESH_TOKEN, refreshToken);
-        await getStorageInstance.write(NAME, name);
-        await getStorageInstance.write(EMAIL, email);
-        await getStorageInstance.write(PASSWORD, password);
-
-        // String? retrievedToken = getStorageInstance.read(TOKEN);
-
-        userData.value = UserModel.fromJson(body['full_name']);
-        userData.refresh();
-        if (kDebugMode) print("USER DATA: $userData");
-
-        goToLogin();
-
-        isLoading.value = false;
+      if (response.statusCode == 201) {
+        print('success');
       } else {
-        if (kDebugMode) print(body["message"]);
-        // appSnackbar(body["message"]);
-        isLoading.value = false;
+        print('failed');
       }
-    } catch (error) {
-      isLoading.value = false;
-      throw Exception(error);
+    } catch (e) {
+      print(e);
     }
   }
 

@@ -152,7 +152,8 @@ class SignUpScreen extends GetView<AuthController> {
                                               controller
                                                   .confirmNewPasswordController
                                                   .text) {
-                                            controller.signUpUser();
+                                            controller.signUpUser('Ebuka',
+                                                'ebuka@gmail.com', 'mypwd');
                                             // print('sign up called');
                                           }
                                           // controller.printName();
